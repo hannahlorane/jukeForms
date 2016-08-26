@@ -1,0 +1,27 @@
+<div>
+  <h3>Artists</h3>
+  <input ng-model="artistSelection" ng-show="true">
+  <table class="table">
+    <thead>
+      <tr>
+        <th ng-repeat="letter in alphabet">
+          <span ng-bind="letter"></span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td ng-repeat="letter in alphabet">
+          <span ng-bind="toFrequency(typedLetters)[letter]"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>{{ artistSelection}}</p>
+    <div class="list-group">
+      <div class="list-group-item" ng-repeat="artist in artists | filter: {name: artistSelection}"> 
+        {{artist.name}}
+      </div>
+  </div>
+</div>
