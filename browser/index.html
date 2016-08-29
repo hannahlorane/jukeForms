@@ -18,6 +18,12 @@
     <script src="/js/artist/artist.factory.js" defer></script>
     <script src="/js/artist/artist.states.js" defer></script>
     <script src="/js/playlist/playlist.state.js" defer></script>
+    <script src="/js/playlist/playlist.factory.js" defer></script>
+    <script src="/js/playlist/playlist.controller.js" defer></script>
+    <script src="/js/playlists/playlists.factory.js" defer></script>
+    <script src="/js/playlists/playlists.controller.js" defer></script>
+    <script src="/js/playlist/singlePlaylist.state.js" defer></script>
+    <script src="/js/playlist/singlePlaylist.controller.js" defer></script>
     <script src="/js/song/song.factory.js" defer></script>
   </head>
   <body ng-app="juke">
@@ -37,8 +43,11 @@
             </h4>
           </section>
           <hr>
-          <section>
+          <section ng-controller="PlaylistCtrl" >
             <h4 class="text-muted">PLAYLISTS</h4>
+            <p ng-repeat="playlist in cachedPlaylists" class="playlist-item">
+              <a ui-sref="singlePlaylist({id: playlist.id})">{{ playlist.name }}</a>
+            </p>
             <p>
               <a class="btn btn-primary btn-block" ui-sref="newPlaylist"><span class="glyphicon glyphicon-plus"></span> PLAYLIST</a>
             </p>
